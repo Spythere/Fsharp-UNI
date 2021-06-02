@@ -44,6 +44,31 @@ let res = avg [ 2.; 4.; 6. ]
 let strings = [ "tomatoes"; "bananas"; "apples" ]
 let fullString = String.concat "," strings
 
+//----------------------
+// Task 3.10
+// 
+let values = ["aa"; "x"; "zzz"; "yy"; "eeee"]
+
+// Sort the string list by length in descending (high to low) order.
+let result = List.sortBy (fun (x : string) -> -x.Length ) values
+
+//----------------------
+// Task 3.11
+// 
+
+
+
+//----------------------
+// Task 3.12
+// 
+let revlists xs = List.map (fun x -> List.rev x) xs;;
+
+let example5 () =
+    let list = [[0;1;1];[3;2];[];[5]]
+    let x =revlists [[0;1;1];[3;2];[];[5]]
+    printfn "The reverse of %A is %A" list x;;
+
+
 
 [<EntryPoint>]
 let main argv =
@@ -65,4 +90,12 @@ let main argv =
     printfn "Task 3.8 %s" message
     printfn "%s" fullString
     
+
+    // Print our results.
+    printfn "Task 3.10 %s" message
+    List.iter(fun x -> printfn "%A" x) result
+
+    // Print all our results.
+    printfn "Task 3.11 %s" message
+    example5 () |> ignore
     0 // return an integer exit code
