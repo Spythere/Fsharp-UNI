@@ -1,5 +1,5 @@
 // Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
-
+module list
 open System
 
 //----------------------
@@ -27,6 +27,22 @@ let rec lista_2 n min max =
     if n > max then
         Pusta
     else Wezel(n, (lista_2 (n+min) min max))
+
+
+//----------------------
+//Task 3.3
+//
+
+let rec getn n xs =
+    match n, xs with
+      | 0, (x::_)   -> x
+      | _, (_::xs') -> getn (n - 1) xs'
+      | _, []       -> invalidArg "n" "n is too large"
+
+/// This invokes the tail recursive helper function
+/// An approach like this is common in F#.
+let sumListTailRecursive xs = getn 5 xs
+let oneThroughTen = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
 //----------------------
 //Task 3.4
@@ -167,7 +183,13 @@ let main argv =
     printfn "%A" (lista_2 ilosc min max)
 
     printfn "----------------------"
-    printfn "Task 3.21"
+    printfn "Task 3.3"
+    printfn "----------------------"
+
+    printfn $"Nth element %d{sumListTailRecursive oneThroughTen}"
+
+    printfn "----------------------"
+    printfn "Task 3.4"
     printfn "----------------------"
 
 
