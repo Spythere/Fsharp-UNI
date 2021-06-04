@@ -2,9 +2,31 @@
 
 open System
 
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
+//----------------------
+//Task 3.1
+//
+
+type Lista<'a> = 
+|Pusta
+|Wezel of 'a*Lista<'a>
+
+let rec lista n =
+    if n = 1 then
+        Pusta
+    else Wezel(n, (lista (n-1)))
+
+//----------------------
+//Task 3.2
+//
+
+type Lista_2<'a> = 
+|Pusta
+|Wezel of 'a*Lista_2<'a>
+
+let rec lista_2 n min max =
+    if n > max then
+        Pusta
+    else Wezel(n, (lista_2 (n+min) min max))
 
 //----------------------
 //Task 3.4
@@ -123,8 +145,32 @@ let resultSumTree = sumTree myTree
 
 [<EntryPoint>]
 let main argv =
-    let message = from "F#" // Call the function
-    printfn "Task 3.4 %s" message
+    
+    printfn "----------------------"
+    printfn "Task 3.1"
+    printfn "----------------------"
+    
+    printfn "Podaj ilosc elementow"
+    let ilosc = (int(Console.ReadLine()))
+    printfn "%A" (lista ilosc)
+
+    printfn "----------------------"
+    printfn "Task 3.2"
+    printfn "----------------------"
+
+    printfn "Podaj ilosc krokow"
+    let ilosc = (int(Console.ReadLine()))
+    printfn "Podaj wartosc min"
+    let min = (int(Console.ReadLine()))
+    printfn "Podaj wartosc max"
+    let max = (int(Console.ReadLine()))
+    printfn "%A" (lista_2 ilosc min max)
+
+    printfn "----------------------"
+    printfn "Task 3.21"
+    printfn "----------------------"
+
+
     let x = [1;2;2;3]
     let y = 4
     let z = 2
@@ -132,31 +178,52 @@ let main argv =
     isInList y x |> printfn "%A"
     isInList z x |> printfn "%A"
      
-    printfn "Task 3.6 %s" message 
+    printfn "----------------------"
+    printfn "Task 3.6"
+    printfn "----------------------"
+
     newList |> printfn "%A"
     
-    printfn "Task 3.7 %s" message
+    printfn "----------------------"
+    printfn "Task 3.7"
+    printfn "----------------------"
+
     printfn "%A" res
     
-    printfn "Task 3.8 %s" message
+    printfn "----------------------"
+    printfn "Task 3.8"
+    printfn "----------------------"
+
     printfn "%s" fullString
     
+    printfn "----------------------"
+    printfn "Task 3.10"
+    printfn "----------------------"
 
-    // Print our results.
-    printfn "Task 3.10 %s" message
     List.iter(fun x -> printfn "%A" x) result
 
-    // Print all our results.
-    printfn "Task 3.12 %s" message
+    printfn "----------------------"
+    printfn "Task 3.12"
+    printfn "----------------------"
+
     example5 () |> ignore
 
-    printfn "Task 3.16 %s" message
+    printfn "----------------------"
+    printfn "Task 3.16"
+    printfn "----------------------"
+
     task_3_16 () |> ignore
 
-    printfn "Task 3.20 %s" message
+    printfn "----------------------"
+    printfn "Task 3.20"
+    printfn "----------------------"
+
     printfn "%A" result_tree_leaf
 
-    printfn "Task 3.21 %s" message
+    printfn "----------------------"
+    printfn "Task 3.21"
+    printfn "----------------------"
+
     printfn "%A" resultSumTree
 
     0 // return an integer exit code
