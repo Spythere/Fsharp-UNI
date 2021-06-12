@@ -1,5 +1,7 @@
 # Hello from Lab-02
-
+```math
+a^2+b^2=c^2
+```
 ### 2.1
 Dany jpest program w C++:
 OBRAZEK DO WGLADU PRZY ZADANIU
