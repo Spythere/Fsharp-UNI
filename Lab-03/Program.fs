@@ -45,6 +45,37 @@ let sumListTailRecursive xs = getn 5 xs
 let oneThroughTen = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
 //----------------------
+//Task 3.5
+//
+type ElementListy<'a> =
+| Istnieje of 'a
+| Brak
+
+
+let findIndex list element =
+    let index = List.tryFindIndex (fun v -> v = element) list
+
+    match index with
+       | Some(x) -> Istnieje(x)
+       | None -> Brak
+
+(* Wywołanie *)
+let x = findIndex ["a";"b";"c"] "c"
+
+match x with
+| Istnieje(x) -> printfn "Element znajduje się w liście na indeksie %d" x
+| Brak -> Console.WriteLine "Ten element nie jest w liście!"
+
+//---------------------- alternate
+let ZnajdzIndeks lista element =
+    let x = List.tryFindIndex (fun a -> a = element) lista
+    if x = None then 
+        failwith "Brak elementu "
+    else
+        x.Value
+//----------------------
+
+//----------------------
 //Task 3.4
 //
 let isInList elementToFind listToCheck = 
