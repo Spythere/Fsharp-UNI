@@ -117,8 +117,10 @@ let myAverage = list_zad7 |> List.average
 // Task 3.8
 // 
 let strings = [ "tomatoes"; "bananas"; "apples" ]
-let fullString separator = String.concat separator strings
+let fullString separator strings = String.concat separator strings
 
+//wywolanie
+fullString "," strings
 //----------------------
 // Task 3.9
 // 
@@ -210,6 +212,9 @@ let porownaj l1 (warunek:Sortowanie) =
     | Sortowanie.Rosnaco when l1 = List.sort l1 -> printfn "Lista jest posortowana rosnaco"
     | Sortowanie.Malejaco when l1 = List.sortDescending l1 -> printfn "Lista jest posortowana malejaco"
     | _ -> printfn "Lista nie jest posortowana %A" warunek
+    
+//wywolanie
+porownaj lista1 Malejaco
 
 //----------------------
 // Task 3.17
