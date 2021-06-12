@@ -117,7 +117,7 @@ let myAverage = list_zad7 |> List.average
 // Task 3.8
 // 
 let strings = [ "tomatoes"; "bananas"; "apples" ]
-let fullString = String.concat "," strings
+let fullString separator = String.concat separator strings
 
 //----------------------
 // Task 3.9
