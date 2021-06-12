@@ -67,11 +67,11 @@ let findIndex list element =
        | None -> Brak
 
 (* Wywołanie *)
-let x = findIndex ["a";"b";"c"] "c"
+//let x = findIndex ["a";"b";"c"] "c"
 
-match x with
-| Istnieje(x) -> printfn "Element znajduje się w liście na indeksie %d" x
-| Brak -> Console.WriteLine "Ten element nie jest w liście!"
+//match x with
+//| Istnieje(x) -> printfn "Element znajduje się w liście na indeksie %d" x
+//| Brak -> Console.WriteLine "Ten element nie jest w liście!"
 
 //---------------------- alternate
 let ZnajdzIndeks lista element =
@@ -149,6 +149,7 @@ let list = ["Ala"; "maja"; "grazyna"; "jozio"]
 let kobietka (str:string) = str.[str.Length-1] ='a'
 let lista1 = List.filter kobietka list
 
+
 //----------------------
 // Task 3.12
 // 
@@ -169,6 +170,7 @@ let mezczyzna (str:string) = str.[str.Length-1] <>'a'
 let listaKobiet = List.filter kobieta list2
 let listamezczyznt = List.filter mezczyzna list2
 
+
 //----------------------
 // Task 3.14
 // 
@@ -183,19 +185,21 @@ let porownanie (a:List<int>) (b:List<int>) =
     else
         List.map2 wieksze a b
 
+//todo
 //----------------------
 // Task 3.15
 // 
-type Porownanie = 
-|Pierwsza
-|Druga
+//type Porownanie = 
+//|Pierwsza
+//|Druga
 
-let wieksze_1 (a: 'a) (b: 'a) = 
-    if (a = None) then Pierwsza
-    elif (b = None) then Druga
+//let wieksze_1 (a: 'a) (b: 'a) = 
+//    if (a = None) then Pierwsza
+//    elif (b = None) then Druga
 
-    elif(a >= b) then Pierwsza
-    else Druga
+//    elif(a >= b) then Pierwsza
+//    else Druga
+
 
 //----------------------
 // Task 3.16
@@ -222,7 +226,7 @@ let porownaj l1 (warunek:Sortowanie) =
 let list1 = [5;4;3;2;1]
 let list2_1 = [5;4;3;2;1]
 let listsort1 = List.sort list1
-let listsort2 = List.sort list2
+let listsort2 = List.sort list2_1
 let list3 (a:List<int>) (b:List<int>) = 
     let sortowanie = a @ b
     let sorcik = List.sort sortowanie
@@ -307,7 +311,17 @@ let main argv =
 
     isInList y x |> printfn "%A"
     isInList z x |> printfn "%A"
-     
+
+    printfn "----------------------"
+    printfn "Task 3.5"
+    printfn "----------------------"
+
+    let x = findIndex ["a";"b";"c"] "c"
+
+    match x with
+    | Istnieje(x) -> printfn "Element znajduje się w liście na indeksie %d" x
+    | Brak -> Console.WriteLine "Ten element nie jest w liście!"
+
     printfn "----------------------"
     printfn "Task 3.6"
     printfn "----------------------"
@@ -325,6 +339,12 @@ let main argv =
     printfn "----------------------"
 
     printfn "%s" (fullString "," strings)
+
+    printfn "----------------------"
+    printfn "Task 3.9"
+    printfn "----------------------"
+
+    printfn "%A" (zadanie9 (string list_zad9) 3)
     
     printfn "----------------------"
     printfn "Task 3.10"
@@ -333,16 +353,47 @@ let main argv =
     List.iter(fun x -> printfn "%A" x) result
 
     printfn "----------------------"
+    printfn "Task 3.11"
+    printfn "----------------------"
+
+    printf "%A" lista1
+
+    printfn "----------------------"
     printfn "Task 3.12"
     printfn "----------------------"
 
     example5 () |> ignore
 
     printfn "----------------------"
+    printfn "Task 3.13"
+    printfn "----------------------"
+
+    printfn "ListaKobiet %A" listaKobiet
+    printfn "ListaMen %A" listamezczyznt
+
+    printfn "----------------------"
+    printfn "Task 3.14"
+    printfn "----------------------"
+
+    printf "%A" (porownanie calkowite1 calkowite2)
+
+    //printfn "----------------------"
+    //printfn "Task 3.15"
+    //printfn "----------------------"
+
+    //printf "%A" (List.map2 wieksze calkowite1 calkowite2)
+
+    printfn "----------------------"
     printfn "Task 3.16"
     printfn "----------------------"
 
     porownaj lista1 Malejaco
+
+    printfn "----------------------"
+    printfn "Task 3.17"
+    printfn "----------------------"
+
+    (list3 listsort1 listsort2)
 
     printfn "----------------------"
     printfn "Task 3.20"
