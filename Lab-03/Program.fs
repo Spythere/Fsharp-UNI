@@ -107,6 +107,12 @@ let avg aList =
 
 let res = avg [ 2.; 4.; 6. ]
 
+//----------alternate
+let list_zad7 = [9.0;0.0;2.0;-4.5;11.2;8.0;-10.0]
+
+let myAverage = list_zad7 |> List.average
+//----------
+
 //----------------------
 // Task 3.8
 // 
