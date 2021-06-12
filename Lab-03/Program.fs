@@ -45,6 +45,13 @@ let sumListTailRecursive xs = getn 5 xs
 let oneThroughTen = [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
 //----------------------
+//Task 3.4
+//
+
+let isInList elementToFind listToCheck = 
+    List.fold(fun acc x -> acc || x = elementToFind) false listToCheck
+
+//----------------------
 //Task 3.5
 //
 type ElementListy<'a> =
@@ -73,14 +80,7 @@ let ZnajdzIndeks lista element =
         failwith "Brak elementu "
     else
         x.Value
-//----------------------
-
-//----------------------
-//Task 3.4
-//
-let isInList elementToFind listToCheck = 
-    List.fold(fun acc x -> acc || x = elementToFind) false listToCheck
-
+        
 //----------------------
 // Task 3.6
 // 
@@ -114,6 +114,18 @@ let strings = [ "tomatoes"; "bananas"; "apples" ]
 let fullString = String.concat "," strings
 
 //----------------------
+// Task 3.9
+// 
+
+let list_zad9 = [ "Grzegorz"; "Korzus"; "IT" ]
+
+let zadanie9 (list:string) n = (list.Length-(2*n))
+
+//wywolanie :
+
+//printfn "%A" (zadanie9 (string list_zad9) 3) //(ostatni parametr to ilosc wyrazow aby usuwac " ")
+
+//----------------------
 // Task 3.10
 // 
 let values = ["aa"; "x"; "zzz"; "yy"; "eeee"]
@@ -125,7 +137,9 @@ let result = List.sortBy (fun (x : string) -> -x.Length ) values
 // Task 3.11
 // 
 
-
+let list = ["Ala"; "maja"; "grazyna"; "jozio"]
+let kobietka (str:string) = str.[str.Length-1] ='a'
+let lista1 = List.filter kobietka list
 
 //----------------------
 // Task 3.12
@@ -139,19 +153,71 @@ let example5 () =
     printfn "The reverse of %A is %A" list x;;
 
 //----------------------
-// Task 3.16
+// Task 3.13
+// 
+let list2 = ["Ala"; "maja"; "Karol"; "grazyna"; "jozio"; "Franek"]
+let kobieta (str:string) = str.[str.Length-1] ='a'
+let mezczyzna (str:string) = str.[str.Length-1] <>'a'
+let listaKobiet = List.filter kobieta list2
+let listamezczyznt = List.filter mezczyzna list2
+
+//----------------------
+// Task 3.14
 // 
 
+let calkowite1 = [1;2;3;4;6;8]
+let calkowite2 = [9;5;0;4;7;1]
+let calkowite3 = [9;5;0;4;7]
+let wieksze (a:int) (b:int) = a > b
+let porownanie (a:List<int>) (b:List<int>) = 
+    if a.Length <> b.Length then
+        failwith "Przekazane listy nie są równe"
+    else
+        List.map2 wieksze a b
 
-let rec isSorted list =
-    match list with
-    | [] | [_] -> true
-    | h1::(h2::_ as tail) -> h1 <= h2 && isSorted tail
+//----------------------
+// Task 3.15
+// 
+type Porownanie = 
+|Pierwsza
+|Druga
 
-let task_3_16 () = 
-    let list = [[5;1;5]];
-    printfn "The isSorted of %A is %A" isSorted list;;
+let wieksze (a: 'a) (b: 'a) = 
+    if (a = None) then Pierwsza
+    elif (b = None) then Druga
 
+    elif(a >= b) then Pierwsza
+    else Druga
+
+//----------------------
+// Task 3.16
+// 
+let lista1 = [1;2;3;4;6;8]
+let lista2 = [9;7;5;4;2;1]
+let lista3 = [9;5;0;4;7;1]
+type Sortowanie = 
+| Malejaco
+| Rosnaco
+
+let porownaj l1 (warunek:Sortowanie) =
+    match warunek with 
+    | Sortowanie.Rosnaco when l1 = List.sort l1 -> printfn "Lista jest posortowana rosnaco"
+    | Sortowanie.Malejaco when l1 = List.sortDescending l1 -> printfn "Lista jest posortowana malejaco"
+    | _ -> printfn "Lista nie jest posortowana %A" warunek
+
+//----------------------
+// Task 3.17
+// 
+let list1 = [5;4;3;2;1]
+let list2 = [5;4;3;2;1]
+let listsort1 = List.sort list1
+let listsort2 = List.sort list2
+let list3 (a:List<int>) (b:List<int>) = 
+    let sortowanie = a @ b
+    let sorcik = List.sort sortowanie
+    printfn "%A" sorcik
+    
+    
 //----------------------
 // Task 3.20
 // 
