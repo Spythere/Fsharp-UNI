@@ -120,7 +120,7 @@ let strings = [ "tomatoes"; "bananas"; "apples" ]
 let fullString separator strings = String.concat separator strings
 
 //wywolanie
-fullString "," strings
+//fullString "," strings
 //----------------------
 // Task 3.9
 // 
@@ -190,7 +190,7 @@ type Porownanie =
 |Pierwsza
 |Druga
 
-let wieksze (a: 'a) (b: 'a) = 
+let wieksze_1 (a: 'a) (b: 'a) = 
     if (a = None) then Pierwsza
     elif (b = None) then Druga
 
@@ -200,7 +200,7 @@ let wieksze (a: 'a) (b: 'a) =
 //----------------------
 // Task 3.16
 // 
-let lista1 = [1;2;3;4;6;8]
+let lista1_1 = [1;2;3;4;6;8]
 let lista2 = [9;7;5;4;2;1]
 let lista3 = [9;5;0;4;7;1]
 type Sortowanie = 
@@ -214,13 +214,13 @@ let porownaj l1 (warunek:Sortowanie) =
     | _ -> printfn "Lista nie jest posortowana %A" warunek
     
 //wywolanie
-porownaj lista1 Malejaco
+//porownaj lista1 Malejaco
 
 //----------------------
 // Task 3.17
 // 
 let list1 = [5;4;3;2;1]
-let list2 = [5;4;3;2;1]
+let list2_1 = [5;4;3;2;1]
 let listsort1 = List.sort list1
 let listsort2 = List.sort list2
 let list3 (a:List<int>) (b:List<int>) = 
@@ -324,7 +324,7 @@ let main argv =
     printfn "Task 3.8"
     printfn "----------------------"
 
-    printfn "%s" fullString
+    printfn "%s" (fullString "," strings)
     
     printfn "----------------------"
     printfn "Task 3.10"
@@ -342,7 +342,7 @@ let main argv =
     printfn "Task 3.16"
     printfn "----------------------"
 
-    task_3_16 () |> ignore
+    porownaj lista1 Malejaco
 
     printfn "----------------------"
     printfn "Task 3.20"
