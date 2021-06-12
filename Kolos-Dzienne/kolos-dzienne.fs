@@ -256,6 +256,43 @@ let ktoraWieksza (x,y) =
        x
     else
        y
+       
+(* 
+ZAD 13.
+
+Napisz funkcję rekurencyjną, która określi ile razy w danym łańcuchu znaków wystąpiła każda z cyfr. 
+Jeżeli jakaś cyfra nie występuje w tekście jej wartość w wynikach powinna zawierać 0 
+*)
+
+let liczZnaki slowo =
+    let rec liczZnak (slowo:string) (znak:char) i suma = 
+        if i=slowo.Length then
+            suma
+        else
+            if (slowo.[i] = znak) then
+                liczZnak slowo znak (i+1) (suma+1)
+            else
+                liczZnak slowo znak (i+1) suma
+    
+
+    [for i in 48..57 -> liczZnak slowo ((char)i) 0 0]
+    
+(*
+ZAD 14.
+
+Zdefiniuj nowy typ danych, który będzie reprezentował liczbę zespoloną. 
+Następnie napisz funkcję pozwalającą dodawać te liczby wg. wzoru: (a1+b1i)+(a2+b2i) = (a1+a2)+(b1+b2)*i
+*)
+
+type Zespolone = {
+    rzeczywista: float;
+    urojona: float;
+}
+
+let dodaj zespolona1 zespolona2 = 
+    let a = zespolona1.rzeczywista + zespolona2.rzeczywista
+    let b = zespolona1.urojona + zespolona2.urojona
+    {rzeczywista=a; urojona=b}
 
 
 [<EntryPoint>]
